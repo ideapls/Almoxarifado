@@ -1,4 +1,6 @@
 # ID do item, quantidade solicitada, quantidade recebida
+from datetime import date
+
 
 class Pedido:
     def __init__(self, codigo, data_pedido, status_pedido, quantidade_solicitada, quantidade_recebida):
@@ -43,3 +45,9 @@ class Pedido:
             return False
         else:
             return True
+
+    def verificar_data_pedido(self):
+        hoje = date.today()
+        if self._data_pedido > hoje:
+            return False
+        return True

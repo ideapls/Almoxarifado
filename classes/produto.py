@@ -37,6 +37,6 @@ class Produto:
 
     def verificar_data_validade(self):
         hoje = date.today()
-        if self._data_validade < hoje:
+        if self._validade < hoje:
             return False
         return True

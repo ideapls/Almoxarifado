@@ -8,7 +8,7 @@ class TestPedido:
         entrada_recebido = 4
         esperado = True
 
-        pedido = Pedido(1, '10/05/2022', 'Entrege', entrada_solicitado, entrada_recebido)
+        pedido = Pedido(1, '10/05/2022', 'Entregue', entrada_solicitado, entrada_recebido)
         resultado = pedido.recebimento_valido()
 
         assert resultado == esperado

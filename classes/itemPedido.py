@@ -16,6 +16,11 @@ class ItemPedido:
     def quantidade_recebida(self):
         return self._quantidade_recebida
 
+    def verificar_preenchimento(self):
+        if not self._codigo or not self._quantidade_solicitada or not self._quantidade_recebida:
+            return False
+        return True
+
     def recebimento_valido(self):
         if self.quantidade_recebida < self.quantidade_solicitada:
             return False

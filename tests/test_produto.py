@@ -9,6 +9,6 @@ class TestProduto:
         assert preenchido == True
 
     def test_verificar_validade_do_produto(self):
-        produto = Produto(1, "Liquid paper", "Material escolar", 4, date(2023, 6, 28))
+        produto = Produto(1, "Liquid paper", "Material escolar", 4, date.today())
         data_validade = produto.verificar_data_validade()
         assert data_validade == True

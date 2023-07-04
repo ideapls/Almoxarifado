@@ -46,6 +46,11 @@ class Pedido:
         else:
             return True
 
+    def verificar_preenchimento(self):
+        if not self._codigo or not self._data_pedido or not self._status_pedido or not self._quantidade_solicitada or not self._quantidade_recebida:
+            return False
+        return True
+
     def verificar_data_pedido(self):
         hoje = date.today()
         if self._data_pedido > hoje:

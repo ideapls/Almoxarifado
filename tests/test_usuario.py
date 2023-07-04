@@ -20,3 +20,8 @@ class TestUsuario:
         resultado = igor.sobrenome()
 
         assert resultado == esperado
+
+    def test_verificar_preenchimento(self):
+        usuario = Usuario(1, 'Igor', 'Molina', '13/03/2000')
+        preenchido = usuario.verificar_preenchimento()
+        assert preenchido == True

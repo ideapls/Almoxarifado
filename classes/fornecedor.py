@@ -1,5 +1,6 @@
 import re
 
+
 class Fornecedor:
     def __init__(self, codigo, nome, cnpj, endereco, telefone, email):
         self._codigo = codigo
@@ -16,6 +17,17 @@ class Fornecedor:
     @property
     def codigo(self):
         return self._codigo
+
+    def verificar_preenchimento(self):
+        if not self._codigo or not self._nome or not self._cnpj or not self._endereco or not self._telefone or not self._email:
+            return False
+        return True
+
+    def validar_email(self):
+        email_regex = r'^[\w\.-]+@[\w\.-]+\.\w+$'
+        if re.match(email_regex, self._email):
+            return True
+        return False
 
     def validar_cnpj(self):
         # Remove caracteres não numéricos

@@ -16,6 +16,11 @@ class Usuario:
     def codigo(self):
         return self._codigo
 
+    def verificar_preenchimento(self):
+        if not self._codigo or not self._nome or not self._sobrenome or not self._data_nascimento:
+            return False
+        return True
+
     def idade(self):
         data_nascimento_quebrada = self._data_nascimento.split('/')
         ano_nascimento = data_nascimento_quebrada[-1]

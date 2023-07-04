@@ -17,3 +17,8 @@ class TestPedido:
         pedido = Pedido(1, date(2023, 6, 10), "Em transporte", 10, 0)
         data_validade = pedido.verificar_data_pedido()
         assert data_validade == True
+
+    def test_verifica_preenchimento(self):
+        pedido = Pedido(1, date(2023, 7, 3), "Em transporte", 10, 0)
+        preenchido = pedido.verificar_preenchimento()
+        assert preenchido == True

@@ -11,3 +11,8 @@ class TestItemPedido:
         resultado = item_pedido.recebimento_valido()
 
         assert resultado == esperado
+
+    def test_verifica_preenchimento(self):
+        itemPedido = ItemPedido(1, 'Pedido teste', 10)
+        preenchido = itemPedido.verificar_preenchimento()
+        assert preenchido == True

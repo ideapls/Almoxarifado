@@ -7,7 +7,7 @@ class TestUsuario:
         entrada = '13/03/2000'  # Given-Contexto
         esperado = 23
 
-        usuario_teste = Usuario(1, 'Teste', 'testando', entrada)
+        usuario_teste = Usuario(1, 'Teste', 'igordsmolina@gmail.com', 'testando', entrada)
         resultado = usuario_teste.idade()  # When-ação
 
         assert resultado == esperado  # Then-desfecho
@@ -16,12 +16,17 @@ class TestUsuario:
         entrada = ' Igor Molina '
         esperado = 'Molina'
 
-        igor = Usuario(2, 'Igor', entrada, '13/03/2000')
+        igor = Usuario(2, 'Igor', 'igordsmolina@gmail.com', entrada, '13/03/2000')
         resultado = igor.sobrenome()
 
         assert resultado == esperado
 
     def test_verificar_preenchimento(self):
-        usuario = Usuario(1, 'Igor', 'Molina', '13/03/2000')
+        usuario = Usuario(1, 'Igor', 'igordsmolina@gmail.com', 'Molina', '13/03/2000')
         preenchido = usuario.verificar_preenchimento()
+        assert preenchido == True
+
+    def test_verifica_integridade_do_preenchimento_do_email(self):
+        usuario = Usuario(1, 'Igor', 'igordsmolina@gmail.com', 'Molina', '13/03/2000')
+        preenchido = usuario.validar_email()
         assert preenchido == True

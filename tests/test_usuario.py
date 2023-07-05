@@ -1,5 +1,5 @@
-from unittest import TestCase
 from Almoxarifado.classes.usuario import Usuario
+from Almoxarifado.classes.sistema import Sistema
 
 
 class TestUsuario:
@@ -30,3 +30,18 @@ class TestUsuario:
         usuario = Usuario(1, 'Igor', 'igordsmolina@gmail.com', 'Molina', '13/03/2000')
         preenchido = usuario.validar_email()
         assert preenchido == True
+
+    def test_quando_codigo_esta_duplicado(self):
+        sistema = Sistema()
+
+        usuario1 = Usuario(1, 'Igor', 'igordsmolina@gmail.com', 'Molina', '13/03/2000')
+        adicionado1 = sistema.adicionar_usuario(usuario1)
+        assert adicionado1 == True
+
+        usuario2 = Usuario(2, 'Teste 2', 'teste2@gmail.com', 'Testudo', '13/03/2000')
+        adicionado2 = sistema.adicionar_usuario(usuario2)
+        assert adicionado2 == True
+
+        usuario3 = Usuario(1, 'Teste 3', 'teste3@gmail.com', 'Testudo', '13/03/2000')
+        adicionado3 = sistema.adicionar_usuario(usuario3)
+        assert adicionado3 == False
